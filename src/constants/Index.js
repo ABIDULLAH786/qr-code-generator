@@ -1,0 +1,2 @@
+export const Card_Contaianer_Style = "text-black bg-white rounded-xl cursor-pointer flex items-center  flex-col justify-center shadow-xl ease-in-out duration-300 hover:text-blue-600 hover:shadow-2xl"
+export const Button_Style = "px-3 py-1 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-400 hover:text-gray-200"
