@@ -9,8 +9,6 @@ function Email() {
     const [qr, setQR] = useState(null);
     function handleSubmit() {
         setQR(`MATMSG:TO:${emailTo};SUB:${subject};BODY:${emailBody};;`);
-
-        return false;
     }
 
 

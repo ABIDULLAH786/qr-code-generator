@@ -55,7 +55,7 @@ function Twitter() {
                             <input type="text"
                                 value={text}
                                 onChange={(e) => setText(e.target.value)} 
-                                className="flex-shrink flex-grow flex-auto leading-normal w-full flex-1 border h-10 border-grey-light rounded rounded-l-none px-3 relative outline-none"
+                                className="flex-shrink flex-grow leading-normal w-full flex-1 border h-10 border-grey-light rounded rounded-l-none px-3 relative outline-none"
                                 placeholder="Username"
                             />
                         </div>}

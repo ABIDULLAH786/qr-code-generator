@@ -4,6 +4,8 @@ import Header from './components/header';
 import Home from './pages/home';
 import Twitter from './pages/twitter';
 import Email from './pages/email';
+import Call from './pages/call';
+import SMS from './pages/sms';
 
 function App() {
   return (
@@ -19,8 +21,8 @@ function App() {
           <Route path="/linkedin" element={<Home />} />
           <Route path="/mail" element={<Email />} />
           <Route path="/wifi" element={<Home />} />
-          <Route path="/call" element={<Home />} />
-          <Route path="/sms" element={<Home/>} />
+          <Route path="/call" element={<Call />} />
+          <Route path="/sms" element={<SMS/>} />
         </Routes>
 
         
