@@ -9,6 +9,7 @@ function Wifi() {
     const [password, setPassword] = useState('');
     const [hidden, setHidden] = useState(false);
     const [qr, setQR] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("Select authentication type")
 
     function handleSubmit() {
         setQR(`WIFI:T:${authentication};S:${name};${authentication !== 'nopass' ? `P:${password};` : ''}H:${hidden};`);
@@ -21,7 +22,11 @@ function Wifi() {
             <div className='mt-5'>
                 <div className='grid md:grid-cols-2'>
                     <div className='w-full mb-2'>
-                        <Select />
+                        <Select
+                            optionList={["WPA", "WEP"]}
+                            selectedOption={selectedOption}
+                            setSelectedOption={setSelectedOption}
+                        />
                         <div className=' mb-2'>
                             <input
                                 type="text"

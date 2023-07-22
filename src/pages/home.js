@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaComments, FaTwitter, FaWifi, FaYoutube } from 'react-icons/fa';
+import { FaComments, FaTwitter, FaWhatsapp, FaWifi, FaYoutube } from 'react-icons/fa';
 import { BiLogoGmail, BiSolidPhone } from 'react-icons/bi';
 import Card from '../theme/containers/card';
 import { InstagramIcon } from '../constants/icons';
@@ -25,29 +25,37 @@ const features = [
         href: "/youtube",
         color: "text-[#c4302b]"
     },
+    ,
     {
         id: 4,
+        name: "Whatsapp",
+        Icon: FaWhatsapp,
+        href: "/whatsapp",
+        color: "text-green-400"
+    },
+    {
+        id: 5,
         name: "Wifi",
         Icon: FaWifi,
         href: "/wifi",
         color: "text-[#00ff00]"
     },
     {
-        id: 5,
+        id: 6,
         name: "SMS",
         Icon: FaComments,
         href: "/sms",
         color: "text-[#004f9f]"
     },
     {
-        id: 3,
+        id: 7,
         name: "Call",
         Icon: BiSolidPhone,
         href: "/call",
         color: "text-[#2c2c2c]"
     },
     {
-        id: 3,
+        id: 8,
         name: "Mail",
         Icon: BiLogoGmail,
         href: "/mail",

@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { RxCross2 } from "react-icons/rx"
-export default function Select() {
+export default function Select({ optionList, selectedOption, setSelectedOption }) {
     const [expend, setExpend] = useState(false)
-    const [selectedOption, setSelectedOption] = useState("Select authentication type")
     const ref = useRef()
-    const optionList = ["WPA", "WEP"]
+
     useEffect(() => {
         document.addEventListener("click", handleClickOutside, true);
         document.body.style.overflow = 'hidden';
@@ -28,7 +27,7 @@ export default function Select() {
                 <div class="flex flex-auto flex-wrap"></div>
                 <input value={selectedOption} disabled class="p-1 px-2 disabled:bg-white appearance-none outline-none w-full text-gray-800 " />
                 {/* clear icon */}
-                {selectedOption !== "Select authentication type" && <div>
+                {(selectedOption !== "Select authentication type" && selectedOption !== "Select Option") && <div>
                     <button class="cursor-pointer w-6 h-full flex items-center text-red-500 outline-none focus:outline-none"
                         onClick={(e) => {
                             setSelectedOption("Select authentication type")
