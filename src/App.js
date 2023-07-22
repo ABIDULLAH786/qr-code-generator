@@ -9,6 +9,7 @@ import SMS from './pages/sms';
 import Wifi from './pages/wifi';
 import Youtube from './pages/youtube';
 import Instagram from './pages/instagram';
+import Whatsapp from './pages/whatsapp';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/twitter" element={<Twitter />} />
           <Route path="/instagram" element={<Instagram />} />
           <Route path="/youtube" element={<Youtube />} />
+          <Route path="/whatsapp" element={<Whatsapp />} />
           <Route path="/linkedin" element={<Home />} />
           <Route path="/mail" element={<Email />} />
           <Route path="/wifi" element={<Wifi />} />
