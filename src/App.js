@@ -10,6 +10,7 @@ import Wifi from './pages/wifi';
 import Youtube from './pages/youtube';
 import Instagram from './pages/instagram';
 import Whatsapp from './pages/whatsapp';
+import Linkedin from './pages/linkedin';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/instagram" element={<Instagram />} />
           <Route path="/youtube" element={<Youtube />} />
           <Route path="/whatsapp" element={<Whatsapp />} />
-          <Route path="/linkedin" element={<Home />} />
+          <Route path="/linkedin" element={<Linkedin />} />
           <Route path="/mail" element={<Email />} />
           <Route path="/wifi" element={<Wifi />} />
           <Route path="/call" element={<Call />} />
