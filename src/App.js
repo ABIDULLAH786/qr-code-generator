@@ -8,6 +8,7 @@ import Call from './pages/call';
 import SMS from './pages/sms';
 import Wifi from './pages/wifi';
 import Youtube from './pages/youtube';
+import Instagram from './pages/instagram';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/twitter" element={<Twitter />} />
-          <Route path="/instagram" element={<Home />} />
+          <Route path="/instagram" element={<Instagram />} />
           <Route path="/youtube" element={<Youtube />} />
           <Route path="/linkedin" element={<Home />} />
           <Route path="/mail" element={<Email />} />
