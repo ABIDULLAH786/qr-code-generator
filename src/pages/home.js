@@ -71,14 +71,15 @@ const features = [
 ]
 function Home() {
     return (
-        <div className='flex  justify-center items-center'>
-            <div className='grid grid-cols-5  gap-5 '>
+        <div className='flex flex-wrap justify-center items-center mt-20'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-5 '>
                 {features?.map((feature, index) =>
                     <Card
                         title={feature?.name}
                         icon={<feature.Icon className={`w-10 h-10 ${feature.color}`} />}
                         href={feature.href}
                         width={"w-52"} height={"h-52"}
+                        className={"transition-transform ease-in-out hover:scale-105"}
                         titleStyle="font-semibold text-md sm:text-lg md:text-xl " />
                 )}
             </div>

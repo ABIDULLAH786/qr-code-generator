@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
-import QRCode from 'react-qr-code';
+import React, { useState } from 'react'
 import Button from '../theme/button';
 import Select from '../theme/select';
+import RenderQRCode from '../components/QRCode';
 
 function Youtube() {
     const [search, setSearch] = useState(null);
@@ -11,6 +11,9 @@ function Youtube() {
 
     function handleSubmit() {
 
+        if (selectedOption === "Select Option") {
+            return alert("Please select option")
+        }
         if (selectedOption === "Youtube Search" && search) {
             setQR('https://www.youtube.com/results?search_query=' + search?.split(" ").join("+"));
         } else if (selectedOption === "Youtube Search" && !search) {
@@ -23,13 +26,13 @@ function Youtube() {
         }
     }
     return (
-        <div className='mx-2 my-5 '>
+        <div className='mx-2 my-5 mt-20 lg:mt-10 '>
             <div>
                 <h1 className='font-samibold text-3xl'>Youtube QR Code Generator</h1>
             </div>
             <div className='mt-5'>
                 <div className='grid md:grid-cols-2'>
-                    <div className='w-full mb-2'>
+                    <form className='w-full mb-2'>
                         <Select optionList={["Youtube Search", "Youtube URL"]}
                             selectedOption={selectedOption}
                             setSelectedOption={setSelectedOption}
@@ -55,28 +58,28 @@ function Youtube() {
                         </div>}
                         <div className='mt-5 md:mt-0 flex sm:block items-center justify-center space-x-2'>
                             <Button
+                                type={"button"}
                                 title="Generate QR Code"
                                 className=""
                                 onClick={handleSubmit}
                                 aria_label={"submit button"}
                             />
                             <Button
+                                type={"button"}
                                 title="Reset"
                                 className=""
                                 onClick={() => {
                                     setQR(null)
-                                    setUrl(null)
+                                    setUrl("")
                                     setSelectedOption("Select Option")
-                                    setSearch(null)
+                                    setSearch("")
                                 }}
                                 aria_label={"rest all fields button"}
                             />
                         </div>
-                    </div>
+                    </form>
 
-                    {qr && <div className='my-2 flex items-center justify-center mt-10 md:mt-0'>
-                        <QRCode value={qr} />
-                    </div>}
+                    {qr && <RenderQRCode qr={qr} />}
                 </div>
 
             </div>

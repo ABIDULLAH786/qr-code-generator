@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
-import QRCode from 'react-qr-code';
+import React, { useState } from 'react'
 import Button from '../theme/button';
 import Select from '../theme/select';
+import RenderQRCode from '../components/QRCode';
 
 function Wifi() {
     const [authentication, setAuthentication] = useState('nopass');
@@ -12,7 +12,7 @@ function Wifi() {
     const [selectedOption, setSelectedOption] = useState("Select authentication type")
 
     function handleSubmit() {
-        if (name && password && selectedOption)
+        if (name && password && selectedOption !=="Select authentication type")
             setQR(`WIFI:T:${authentication};S:${name};${authentication !== 'nopass' ? `P:${password};` : ''}H:${hidden};`);
         else
             alert('Please fill all the fileds')
@@ -24,7 +24,7 @@ function Wifi() {
                 <h1 className='font-samibold text-3xl'>Wifi QR Code Generator</h1>
             </div>
             <div className='grid md:grid-cols-2 mt-5'>
-                <div className='w-full mb-2'>
+                <form className='w-full mb-2'>
                     <Select
                         optionList={["WPA", "WEP"]}
                         selectedOption={selectedOption}
@@ -51,28 +51,28 @@ function Wifi() {
                     </div>
                     <div className='mt-5 md:mt-0 flex sm:block items-center justify-center space-x-2'>
                         <Button
+                            type={"button"}
                             title="Generate QR Code"
                             className=""
                             onClick={handleSubmit}
                             aria_label={"submit button"}
                         />
                         <Button
+                            type={"button"}
                             title="Reset"
                             className=""
                             onClick={() => {
                                 setQR(null)
-                                setName(null)
-                                setPassword(null)
+                                setName("")
+                                setPassword("")
                                 setSelectedOption("Select authentication type")
                             }}
                             aria_label={"rest all fields button"}
                         />
                     </div>
-                </div>
+                </form>
 
-                {qr && <div className='mt-10 md:mt-0  my-2 flex items-center justify-center'>
-                    <QRCode value={qr} />
-                </div>}
+                {qr && <RenderQRCode qr={qr} />}
             </div>
 
 

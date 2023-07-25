@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import QRCode from 'react-qr-code';
 import Button from '../theme/button';
+import RenderQRCode from '../components/QRCode';
 
 function Email() {
     const [emailTo, setEmailTo] = useState(null);
@@ -16,12 +16,12 @@ function Email() {
 
 
     return (
-        <div className='mx-2 my-5 '>
+        <div className='mx-2 my-5 mt-20 lg:mt-10 '>
             <div>
                 <h1 className='font-samibold text-3xl'>Mail QR Code Generator</h1>
             </div>
             <div className='grid md:grid-cols-2 mt-5'>
-                <div className='w-full space-y-2'>
+                <form className='w-full space-y-2'>
                     <input type="text"
                         value={emailTo}
                         onChange={(e) => setEmailTo(e.target.value)}
@@ -43,28 +43,29 @@ function Email() {
 
                     <div className='mt-5 md:mt-0 flex sm:block items-center justify-center space-x-2'>
                         <Button
+                            type={"button"}
                             title="Generate QR Code"
                             className=""
                             onClick={handleSubmit}
                             aria_label={"submit button"}
                         />
                         <Button
+                            type={"button"}
                             title="Reset"
                             className=""
                             onClick={() => {
                                 setQR(null)
-                                setEmailBody(null)
-                                setEmailTo(null)
-                                setSubject(null)
+                                setEmailBody("")
+                                setEmailTo("")
+                                setSubject("")
                             }}
                             aria_label={"rest all fields button"}
                         />
                     </div>
-                </div>
+                </form>
 
-                {qr && <div className='mt-10 md:mt-0  my-2 flex items-center justify-center'>
-                    <QRCode value={qr} />
-                </div>}
+                {qr && <RenderQRCode qr={qr} />}
+
             </div>
 
         </div>
